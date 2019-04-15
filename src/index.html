@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./css/index.min.css"> -->
+    <style>
+    *{margin:0;padding:0;list-style:none;}
+    html,body{width:100%;height:100%;}
+    .wrapper{height:100%;max-width:640px;min-width:320px;display:flex;flex-direction:column;}
+    .wrapper>.top{height:44px;border-bottom:thin solid #ccc;display:flex;justify-content:space-between;}
+    .wrapper>.main{flex:1;overflow:scroll;}
+    .wrapper>.footer{height:50px;background:Red;border-top:thin solid #ccc;}
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="top">
+            <img src="./images/logo.png" alt="">
+            <img src="./images/user.png" alt="">
+        </div>
+        <div class="main"></div>
+        <div class="footer">2</div>
+    </div>
+
+    <!-- <script src="./gulpfile.js"></script> -->
+    <!-- <script src="./script/index.js"></script> -->
+    <script>
+        function Ajax(opts){
+            const xhr = new XMLHttpRequest();
+            xhr.open(opts.type,opts.url,opts.async);
+            xhr.send(null);
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    console.log(JSON.parse(xhr.responseText));
+                }
+            }
+        }
+
+        new Ajax({
+            type:'get',url:'http://localhost:3000/api',
+        });
+    </script>
+</body>
+</html>
